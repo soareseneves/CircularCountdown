@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.content.res.TypedArray
 import android.graphics.Color
-import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.RotateDrawable
 import android.os.CountDownTimer
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
@@ -234,7 +234,7 @@ class CircularCountdown : RelativeLayout {
 
     private fun setProgressForegroundColor(color: String) {
         try {
-            val progressDrawable = DrawableCompat.wrap(countdownProgress.progressDrawable) as LayerDrawable
+            val progressDrawable = DrawableCompat.wrap(countdownProgress.progressDrawable) as RotateDrawable
             val foreground = progressDrawable.findDrawableByLayerId(android.R.id.progress)
             DrawableCompat.setTint(foreground.mutate(), Color.parseColor(color))
         } catch (iae: IllegalArgumentException) {
@@ -248,7 +248,7 @@ class CircularCountdown : RelativeLayout {
 
     private fun setProgressBackgroundColor(color: String) {
         try {
-            val progressDrawable = DrawableCompat.wrap(countdownProgress.progressDrawable) as LayerDrawable
+            val progressDrawable = DrawableCompat.wrap(countdownProgress.progressDrawable) as RotateDrawable
             val background = progressDrawable.findDrawableByLayerId(android.R.id.secondaryProgress)
             DrawableCompat.setTint(background.mutate(), Color.parseColor(color))
         } catch (iae: IllegalArgumentException) {
